@@ -1,4 +1,4 @@
-// Letters to choose from //
+// Letters computer can choose from //
 var computer = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; 
 var wins = 0;
 var losses = 0;
@@ -7,12 +7,12 @@ var guessesLeft = 9;
 var guessesSoFar = []; 
 
 
-document.onkeyup = function(event) {
-	// user choice //
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
+document.onkeyup = function(e) {
+	// user choice; makes all letters lowercase //
+    var userGuess = String.fromCharCode(e.keyCode).toLowerCase(); 
     // computer selects random letter //
     var computerGuess = computer[Math.floor(Math.random()*computer.length)]; 
-    // pushes userGuess to guessesSoFar //
+    // pushes userGuess to guessesSoFar Array //
         guessesSoFar.push(userGuess); 
 
     if (userGuess == computerGuess) {
