@@ -5,13 +5,12 @@ var losses = 0;
 var guessesLeft = 9;
 // Array to hold user choices //
 var guessesSoFar = []; 
-
+ // computer selects random letter //
+var computerGuess = computer[Math.floor(Math.random()*computer.length)];
 
 document.onkeyup = function(e) {
 	// user choice; makes all letters lowercase //
     var userGuess = String.fromCharCode(e.keyCode).toLowerCase(); 
-    // computer selects random letter //
-    var computerGuess = computer[Math.floor(Math.random()*computer.length)]; 
     // pushes userGuess to guessesSoFar Array //
         guessesSoFar.push(userGuess); 
 
@@ -22,6 +21,7 @@ document.onkeyup = function(e) {
         });
         // reset guesses back to 9 //
         guessesLeft = 9;
+        guessesSoFar.length = 0;
     }
     else if (guessesLeft == 0) {
         losses++;
@@ -30,6 +30,7 @@ document.onkeyup = function(e) {
         });
         //reset guesses back to 9 //
         guessesLeft = 9;
+        guessesSoFar.length = 0;
     }
     else if (userGuess !== computerGuess) {
         guessesLeft--; // subtracting guesses left //
